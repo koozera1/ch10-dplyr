@@ -5,23 +5,25 @@
 
 # Read in the data (from `data/pupulitzer-circulation-data.csv`). Remember to 
 # not treat strings as factors!
-
+stuff <- read.csv("data/pulitzer-circulation-data.csv", stringsAsFactors = FALSE)
 
 # View in the data set. Start to understand what the data set contains
-
+View(stuff)
 
 # Print out the names of the columns for reference
-
+print(colnames(stuff))
 
 # Use the 'str()' function to also see what types of values are contained in 
 # each column (you're looking at the second column after the `:`)
 # Did any value type surprise you? Why do you think they are that type?
-
+str(stuff)
 
 # Add a column to the data frame called 'Pulitzer.Prize.Change` that contains 
 # the difference in the number of times each paper was a winner or finalist 
 # (hereafter "winner") during 2004-2014 and during 1990-2003
-
+stuff <- mutate(stuff, Pulitzer.Prize.Change = 
+                  Pulitzer.Prize.Winners.and.Finalists..2004.2014 - 
+                  Pulitzer.Prize.Winners.and.Finalists..1990.2003)
 
 # What was the name of the publication that has the most winners between 
 # 2004-2014?
